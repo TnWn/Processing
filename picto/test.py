@@ -21,8 +21,9 @@ def drawLines():
     print oldy
     for i in range(0,10):
 
-        rand_color = int(random(0,4))
-        
+        rand_color = color_set[int(random(0,4))]
+        print rand_color
+        stroke(rand_color[0], rand_color[1], rand_color[2])
 
         print i
         randx = int(random(1,4))
@@ -43,6 +44,10 @@ def drawLines():
     for c in test:
 
         fill(20,20,20)
+
+        rand_color = color_set[int(random(0,4))]
+        print rand_color
+        stroke(rand_color[0], rand_color[1], rand_color[2])
 
         print c
         x = c[0]
