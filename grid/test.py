@@ -31,7 +31,8 @@ def hole():
             random_x = random(0,canvas_size)
             random_y = random(0,canvas_size)
             quad(random_x, random_y, random_x + random(rand_neg , rand_max), random_y + random(rand_neg , rand_max), random_x + random(rand_neg , rand_max), random_y + random(rand_neg , rand_max), random_x + random(rand_neg , rand_max), random_y + random(rand_neg , rand_max))
-#maybe add variation to thickness & color
+
+#maybe add variation to thickness & color. rotate grids?
 def grid(x):
     stroke(1)
     for x in range(0,canvas_size, canvas_size/x):
@@ -39,7 +40,7 @@ def grid(x):
         line(0, x, canvas_size, x)
 
 def draw():
-    for x in range(0,500):
+    for x in range(0,1000):
         print x
         hole()
         grid(int(random(1,100)))
