@@ -1,9 +1,9 @@
 import datetime
 
 canvas_size = 1000
-rand_min = 100
-rand_neg = -300
-rand_max = 300
+rand_min = 50
+rand_neg = -250
+rand_max = 250
 margin = 100
 bgc = color(255, 255, 245)
 grid_colors = [[225,90,80], [225,60,60], [194,100,100], [21,75,100], [12,90,80], [60,4,100]]
@@ -35,7 +35,7 @@ def hole():
             quad(random_x, random_y, random_x + random(rand_neg , rand_max), random_y + random(rand_neg , rand_max), random_x + random(rand_neg , rand_max), random_y + random(rand_neg , rand_max), random_x + random(rand_neg , rand_max), random_y + random(rand_neg , rand_max))
 
 def grid(x):
-    strokeWeight(random(0.1,2))
+    strokeWeight(random(0.1,1.5))
     random_color = int(random(0,len(grid_colors)))
     stroke(grid_colors[random_color][0], grid_colors[random_color][1], grid_colors[random_color][2])
     rotate(random(0,1))
