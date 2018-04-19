@@ -38,7 +38,7 @@ def grid(x):
     strokeWeight(random(0.1,1.5))
     random_color = int(random(0,len(grid_colors)))
     stroke(grid_colors[random_color][0], grid_colors[random_color][1], grid_colors[random_color][2])
-    rotate(random(0,1))
+    rotate(random(0,6.3))
     for x in range(-canvas_size, canvas_size, canvas_size/x):
         wiggle = random(-30,30)
         line(x + wiggle, 0 + wiggle, x + wiggle, canvas_size + wiggle)
