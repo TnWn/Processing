@@ -35,8 +35,8 @@ def createCircle(iterator):
 def drawCircle(point_list, iterator):
     random_color = int(random(0,len(COLOR_LIST)))
     stroke(COLOR_LIST[random_color][0], COLOR_LIST[random_color][1], COLOR_LIST[random_color][2])
-    random_min = len(point_list)/4
-    random_max = len(point_list)/2
+    random_min = int(random(len(point_list)/50, len(point_list)/3))
+    random_max = int(random(len(point_list)/2, len(point_list)/3))
     stroke_weight = int(random(10,20))
 
     for j in range(random_min, random_max):
