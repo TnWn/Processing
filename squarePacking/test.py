@@ -12,17 +12,12 @@ class Circle(object):
         self.y = y
         self.r = r
     def display(self):  # Display method
-        noStroke()
-        #colorMode(HSB, 360, 100, 100)
-        #tester = int(random(0,len(COLOR_LIST)))
-        #fill(COLOR_LIST[tester][0], COLOR_LIST[tester][1], COLOR_LIST[tester][2])
+        #   noStroke()
         fill(COLOR_LIST[1][0], COLOR_LIST[1][1], COLOR_LIST[1][2])
         rect(self.x, self.y, 2*self.r, 2*self.r)
     def collides(self, c):
-        if (abs(self.x - c.x) < (self.r + MARGIN)) or (abs(self.y - c.y) < (self.r + MARGIN)):
+        if (abs(self.x - c.x) < (self.r + c.r + MARGIN)) or (abs(self.y - c.y) < (self.r + c.r + MARGIN)):
             return True
-        #if (dist(self.x, self.y, c.x, c.y,) < ((self.r * 2)+ c.r + MARGIN)):
-        #    return True
         return False
 
 def setup():
@@ -43,6 +38,7 @@ def isValidCircle(new_circle):
     return True
 
 failed_tries = 0
+sucessful_tries = 0
 circles = []
 MARGIN = 0         #user specified margin between the circles
 SQUARE_MARGIN = 100
@@ -54,9 +50,13 @@ COLOR_LIST = [[225,90,80], [225,60,60], [194,100,100], [21,75,100], [12,90,80], 
 
 def draw():
     global failed_tries
+    global sucessful_tries
     global current_radius
     print "FAILED TRIES:"
     print failed_tries
+    print "~~~~~~~~~~~~~~~~~~~~~~~"
+    print "SUCESSFUL TRIES:"
+    print sucessful_tries
     print "~~~~~~~~~~~~~~~~~~~~~~~"
     print "CURRENT RADIUS"
     print current_radius
@@ -65,9 +65,10 @@ def draw():
     if (isValidCircle(new_circle)):
         new_circle.display()
         circles.append(new_circle)
+        sucessful_tries += 1
     else:
         failed_tries += 1
-        if (failed_tries > 32 * 1024 / (current_radius * (current_radius / 2))):
+        if (failed_tries > 128 * 2048 / (current_radius)):
             current_radius /= 2
             if (current_radius < RADIUS_MIN):
                 time = datetime.datetime.now().strftime("%d_%m_%H_%M")
