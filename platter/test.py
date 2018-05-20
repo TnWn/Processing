@@ -9,7 +9,7 @@ BACKGROUND_COLOR = [20,20,20]
 
 def setup():
     size(canvas_size,canvas_size)
-    strokeWeight(5)
+    strokeWeight(1)
     strokeJoin(BEVEL)
     #noFill()
     smooth()
@@ -23,25 +23,22 @@ def createCircle(iterator):
         y = sqrt(radius - x ** 2)
         if not math.isnan(y):
             point_list.append([x,y])
-
-
     for x in range(canvas_size , -canvas_size ,-5):
         y = -sqrt(radius  - x ** 2)
         if not math.isnan(y):
             point_list.append([x,y])
-
-    drawCircle(point_list,iterator)
+    for i in range(0,10):
+        drawCircle(point_list,iterator)
 
 def drawCircle(point_list, iterator):
     random_color = int(random(0,len(COLOR_LIST)))
     stroke(COLOR_LIST[random_color][0], COLOR_LIST[random_color][1], COLOR_LIST[random_color][2])
-    random_min = int(random(len(point_list)/50, len(point_list)/3))
-    random_max = int(random(len(point_list)/2, len(point_list)/3))
-    #stroke_weight = int(random(10,20))
+    fill(COLOR_LIST[random_color][0], COLOR_LIST[random_color][1], COLOR_LIST[random_color][2])
+    random_max =  int(random(0,len(point_list)/8))
     stroke_weight = 5
     beginShape()
-    for j in range(random_min, random_max):
-        if (j == random_min):
+    for j in range(0, random_max):
+        if (j == 0):
             vertex(0,0)
         vertex(point_list[j][0], point_list[j][1])
     endShape(CLOSE)
@@ -49,8 +46,7 @@ def drawCircle(point_list, iterator):
 
 def draw():
     translate(canvas_size/2, canvas_size/2)
-    #for x in range(0,150):
-    for x in range(0,5):
+    for x in range(50,0,-1):
         createCircle(x)
     noLoop()
     mouseClicked()
