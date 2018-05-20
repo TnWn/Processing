@@ -1,11 +1,13 @@
 import datetime
 import math
 
-canvas_size = 1000
+canvas_size = 1400
 #COLOR_LIST =[[233, 217, 229], [129, 176, 178], [168, 193, 200], [151, 166, 117], [234, 155, 103], [255, 220, 127]]
 COLOR_LIST = [[315, 27, 88], [193, 23, 72], [356, 19, 71], [172, 63, 78], [192, 82, 33], [40, 4, 86],
-            [182, 24, 60], [115, 34, 87], [77, 22, 65], [36, 42, 78], [44, 100, 75]]
-BACKGROUND_COLOR = [17, 3, 41]
+            [182, 24, 60], [115, 34, 87], [77, 22, 65], [36, 42, 78], [44, 100, 75], [44, 20, 53],
+            [219, 21, 70], [324, 10, 38], [32, 84, 40], [220, 45, 84], [231, 54, 97], [66, 22, 43],
+            [144, 19, 38]]
+BACKGROUND_COLOR = [17, 3, 35]
 
 def setup():
     size(canvas_size,canvas_size)
@@ -21,11 +23,11 @@ def setup():
 def createCircle(iterator):
     point_list = []
     radius = (iterator * iterator * 200)
-    for x in range(-canvas_size , canvas_size ,5):
+    for x in range(-canvas_size , canvas_size , 1):
         y = sqrt(radius - x ** 2)
         if not math.isnan(y):
             point_list.append([x,y])
-    for x in range(canvas_size , -canvas_size ,-5):
+    for x in range(canvas_size , -canvas_size , -1):
         y = -sqrt(radius  - x ** 2)
         if not math.isnan(y):
             point_list.append([x,y])
