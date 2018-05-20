@@ -7,7 +7,7 @@ COLOR_LIST = [[315, 27, 88], [193, 23, 72], [356, 19, 71], [172, 63, 78], [192, 
             [182, 24, 60], [115, 34, 87], [77, 22, 65], [36, 42, 78], [44, 100, 75], [44, 20, 53],
             [219, 21, 70], [324, 10, 38], [32, 84, 40], [220, 45, 84], [231, 54, 97], [66, 22, 43],
             [144, 19, 38]]
-BACKGROUND_COLOR = [17, 3, 35]
+BACKGROUND_COLOR = [17, 3, 45]
 
 def setup():
     size(canvas_size,canvas_size)
@@ -31,7 +31,7 @@ def createCircle(iterator):
         y = -sqrt(radius  - x ** 2)
         if not math.isnan(y):
             point_list.append([x,y])
-    for i in range(0,8):
+    for i in range(0, int((iterator/5)) + 5):
         drawCircle(point_list,iterator)
 
 def drawCircle(point_list, iterator):
