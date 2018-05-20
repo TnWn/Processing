@@ -2,15 +2,16 @@ import datetime
 import math
 
 canvas_size = 1000
-COLOR_LIST = [[76, 0, 207], [196, 142, 0], [191, 28, 0], [1, 197, 201], [67, 199, 0], [0, 66, 207], [183, 196, 0], [0, 199, 126], [207, 0, 143]]
-BACKGROUND_COLOR = [20,20,20]
-
+#COLOR_LIST =[[233, 217, 229], [129, 176, 178], [168, 193, 200], [151, 166, 117], [234, 155, 103], [255, 220, 127]]
+COLOR_LIST = [[315, 27, 88], [193, 23, 72], [356, 19, 71], [172, 63, 78], [192, 82, 33], [40, 4, 86],
+            [182, 24, 60], [115, 34, 87], [77, 22, 65], [36, 42, 78], [44, 100, 75]]
+BACKGROUND_COLOR = [17, 3, 41]
 
 def setup():
     size(canvas_size,canvas_size)
     strokeWeight(1)
     strokeJoin(BEVEL)
-    #noFill()
+    colorMode(HSB, 360, 100, 100)
     smooth()
     frameRate(30)
     background(BACKGROUND_COLOR[0], BACKGROUND_COLOR[1], BACKGROUND_COLOR[2])
@@ -19,7 +20,7 @@ def setup():
 #ARGS: iterator - sets the size of the circle, larger iterator = larger circle
 def createCircle(iterator):
     point_list = []
-    radius = 400 + (iterator * iterator * 200)
+    radius = (iterator * iterator * 200)
     for x in range(-canvas_size , canvas_size ,5):
         y = sqrt(radius - x ** 2)
         if not math.isnan(y):
@@ -33,8 +34,7 @@ def createCircle(iterator):
 
 def drawCircle(point_list, iterator):
     random_color = int(random(0,len(COLOR_LIST)))
-    #MAKE STROKE SLIGHTLY DARKER THAN FILL? - USE HSL
-    stroke(COLOR_LIST[random_color][0], COLOR_LIST[random_color][1], COLOR_LIST[random_color][2])
+    stroke(COLOR_LIST[random_color][0], COLOR_LIST[random_color][1], (COLOR_LIST[random_color][2] - 5))
     fill(COLOR_LIST[random_color][0], COLOR_LIST[random_color][1], COLOR_LIST[random_color][2])
     random_max = int(random(1,len(point_list)))
     random_max = random_max / iterator
